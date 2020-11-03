@@ -1,0 +1,21 @@
+commit 90dbda79801740b1acf10aea4381047e53a5a4a3 (HEAD -> master)                                                      
+  Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>                                                               
+  Date:   Tue Nov 3 21:32:21 2020 +0200                                                                                                               
+    tiedosto 1 poistettu ja tiedosto2 uudelleennimetty                                                                                                    
+     tiedostoja/file2             | 0                                                                                   
+     tiedostoja/{file1 => file22} | 0                                                                                   
+    2 files changed, 0 insertions(+), 0 deletions(-)                                                                                                                    
+commit 0271be19c4665e09fdb091b0f389706e6eae947b                                                                       
+  Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+  Date:   Tue Nov 3 21:23:14 2020 +0200               
+    kansio tiedostoja luotu                                                                                                                                    
+     tiedostoja/file1 | 0                                                                                                
+     tiedostoja/file2 | 0                                                                                                
+     tiedostoja/file3 | 0                                                                                                
+    3 files changed, 0 insertions(+), 0 deletions(-)                                                                                                 
+commit 51d2eab3f892dfb2a71f9ac2a5b458e96c0ed1da                                                                      
+  Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>                                                              
+  Date:   Tue Nov 3 21:19:09 2020 +0200                  
+    tiedostoja eka.txt ja kolmas.txt muokattu                                                                                                               
+     eka.txt    | 2 +-                                                                                      
+     kolmas.txt | 2 +-                 

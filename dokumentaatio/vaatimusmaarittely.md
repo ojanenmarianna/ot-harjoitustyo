@@ -26,3 +26,4 @@ Perusversion jälkeen ohjelmaa päivitetään ajan salliessa esim. seuraavilla t
  *luodaan top100-taulukko, jossa näkyy 100 parasta tulosta koko käyttäjäkunnalta
  *pelaajatunnuksen poisto
  *pelaajatunnuksen yhteyteen salasana, joka vaaditaan kirjautuessa
+ 

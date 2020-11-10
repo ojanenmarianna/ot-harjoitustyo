@@ -12,6 +12,6 @@
 ### Tehtävät
 [Testikattavuus](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.png)
 
-###Harjoitustyö
+### Harjoitustyö
 [Vaatimusmäärittely](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 [Tuntikirjanpito](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)

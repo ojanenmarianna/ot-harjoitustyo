@@ -1,18 +1,18 @@
 # Vaatimusmäärittely
 
 ## Sovelluksen tarkoitus
-Sovelluksen tarkoituksen on Tetriksen pelaaminen. Useampi käyttäjä voi yhtä aik>
+Sovelluksen tarkoituksen on Tetriksen pelaaminen. Useampi käyttäjä voi pelata peliä yhtä aikaa.
 
 ## Käyttäjät
-Sovelluksessa on kaksi käyttjäroolia, jotka ovat vieraskäyttäjä ja kirjautunut >
+Sovelluksessa on kaksi käyttjäroolia, jotka ovat vieraskäyttäjä ja kirjautunut käyttäjä.
 
 ## Perusversion tarjoama toiminnallisuus
 
 ### Ennen kirjautumista
  * pelaaja voi luoda käyttäjätunnuksen
-  * käyttäjätunnuksen tulee olla uniikki ja pituudeltaan vähintään 2 merkkiä
+   * käyttäjätunnuksen tulee olla uniikki ja pituudeltaan vähintään 2 merkkiä
  * pelaaja voi kirjautua sisään järjestelmään
-  * kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus kirjautumis>
+   * kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus kirjautumislomakkeelle
  * pelaaja voi pelata peliä vieraskäyttäjällä
 
 ### Kirjautumisen jälkeen

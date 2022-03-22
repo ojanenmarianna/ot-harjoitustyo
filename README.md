@@ -1,4 +1,4 @@
-# Ohjelmistotekniikka kevät 2022
+# Ohjelmistotekniikka 2022
 
 ## Tehtävät
 

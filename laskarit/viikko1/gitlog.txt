@@ -1,0 +1,122 @@
+marianna@marianna-ThinkPad-T490:~/ot2022/ot_viikko1/tiedostoja$ git log --stat | cat
+commit c2502bc6111924c0832c76fe8de1bd7e97637c3a
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 15:10:24 2022 +0200
+
+    Poistettu file1 ja uudelleennimetty file2 -> file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 478049f621b07623a9257c1e9df982a1815837b3
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 15:07:24 2022 +0200
+
+    Lsätty tideostot 1,2 ja 3
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 997f9e4769302e911e852662c6f12bd0b734cc85
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 15:04:08 2022 +0200
+
+    Muokattu tiedostoja eka.txt ja kolmas.txt
+
+ eka.txt    | 1 -
+ kolmas.txt | 1 +
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit 3cbb2506a03ae454265b80470ed51730541c3efc
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 15:03:00 2022 +0200
+
+    nimetty tiedosto.txt uudelleen eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f9488b392dd8dd857a9622d4000badcee83cbc22
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 15:00:49 2022 +0200
+
+    Poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 0f3334a17a87d0b54a2883bdd1e97e07e705f8db
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 14:57:05 2022 +0200
+
+    Muokattu tiedosto.txt
+
+ tiedosto.txt | 12 +-----------
+ 1 file changed, 1 insertion(+), 11 deletions(-)
+
+commit fb0b03481995ab3e0266a2df84f645e26dff6184
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 14:55:20 2022 +0200
+
+    Lisätty tekstiä tiedosto.txt
+
+ tiedosto.txt | 107 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 107 insertions(+)
+
+commit a134820b6366a5f5ed962a1286a3d596bbcd11c1
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 14:44:43 2022 +0200
+
+    luotu stuff ja neljas.txt
+
+ stuff/neljas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1bd4917c097a09f2342d71c96e26e5ff14400790
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 14:43:13 2022 +0200
+
+    muokattu toinen.txt ja kolmas.txt
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 5e97b1263eaaff2659fcb69f3628f655f1dc371c
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 14:42:18 2022 +0200
+
+    lisätty kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 27ec7c5dd119fa014926bb2308b4e7a224de6144
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 14:41:39 2022 +0200
+
+    muutos ja lisäys
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a143a9a282568ce918ae999caab604154fc09951
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 14:40:16 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit fe6e4e677b5c6d689c3feaf962ea09fe7d3d4264
+Author: Marianna Ojanen <marianna.ojanen@kotiposti.net>
+Date:   Tue Mar 22 14:39:06 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)

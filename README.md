@@ -10,5 +10,6 @@
 
 ### Viikko 2
 
-[Vaatimusmäärittely](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/laskarit/viikko2/vaatimumaarittely.md)
-[Työaikakirjanpito](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/laskarit/viikko2/tuntikirjanpito.md)
+[Vaatimusmäärittely](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[Työaikakirjanpito](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)

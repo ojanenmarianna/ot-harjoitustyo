@@ -32,6 +32,6 @@ Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seura
 
 - Luodaan TOP10-lista, jolle pääsevät vain kirjautuneet käyttäjät
 - Lisätään sovellukseen ylläpitäjiä, jotka voivat mm. poistaa muita käyttäjiä
-- Mahdollisuus valita isompi ruudukko / valita vaikeustaso
+- Mahdollisuus valita isompi tai pienempi ruudukko
 - Parempi algoritmi toteuttamaan vastapuolen pelaajaa
 - Kirjautuneet käyttäjät voivat pelata toisiaan vastaan livenä

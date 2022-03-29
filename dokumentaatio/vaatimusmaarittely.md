@@ -9,7 +9,7 @@ Pelin tavoitteena on saada ensimmäisenä vaakasuoraan, pystysuoraan tai diagona
 ## Käyttäjät
 Sovellusta voi käyttää joko vieraana tai normaalina käyttäjänä.
 
-## Perusversion tarjoama toiminallisuus
+## Perusversion tarjoama toiminnallisuus
 
 ### Ennen kirjautumista
 

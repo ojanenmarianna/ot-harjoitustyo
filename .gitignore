@@ -3,4 +3,4 @@ laskarit/viikko2/unicafe/src/__pycache__/
 laskarit/viikko2/unicafe/src/tests/__pycache__/
 .coverage
 htmlcov
-./src/__pycache__/
+**/__pycache__/

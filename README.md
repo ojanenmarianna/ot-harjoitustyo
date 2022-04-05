@@ -10,6 +10,7 @@ Sovelluksen toiminta on testattu käyttäen Pythonin versiota `3.8`. Vanhempien 
 ## Dokumentaatio
 
 [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+
 [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 
 ## Asennus

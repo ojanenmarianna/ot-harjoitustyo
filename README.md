@@ -1,15 +1,35 @@
-# Ohjelmistotekniikka 2022
+# Connect Four
 
-## Tehtävät
+Connect Four on vuoropeli, jossa pelaajan on tarkoitus saada neljä pelimerkkiä peräkkäin joko riviin, jonoon tai diagonaaliin.
+Sovellus toteutetaan Helsingin yliopiston kurssilla Ohjelmistotekniikka 2022.
 
-### Viikko 1
+## Huomio Python versiosta
 
-[gitlog.txt](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+Sovelluksen toiminta on testattu käyttäen Pythonin versiota `3.8`. Vanhempien Python-versioiden kanssa saattaa ilmentyä ongelmia.
 
-[komentorivi.txt](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+## Dokumentaatio
 
-### Viikko 2
+[Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+[Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 
-[Vaatimusmäärittely](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+## Asennus
 
-[Työaikakirjanpito](https://github.com/ojanenmarianna/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+1. Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+2. Käynnistä sovellus komennolla:
+
+```bash
+poetry run python3 src/index.py
+```
+
+## Komentorivitoiminnot
+
+1. Ohjelman voi suorittaa komentoriviltä komennolla
+
+```bash
+poetry run python3 src/index.py
+```

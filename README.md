@@ -13,6 +13,8 @@ Sovelluksen toiminta on testattu käyttäen Pythonin versiota `3.8`. Vanhempien 
 
 [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 
+[Changelog](./dokumentaatio/changelog.md)
+
 ## Asennus
 
 1. Asenna riippuvuudet komennolla:

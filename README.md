@@ -24,7 +24,7 @@ poetry install
 2. Käynnistä sovellus komennolla:
 
 ```bash
-poetry run python3 src/index.py
+poetry run invoke start
 ```
 
 ## Komentorivitoiminnot

@@ -25,3 +25,4 @@ class GameLoop:
 
     def _render(self):
         pass
+    

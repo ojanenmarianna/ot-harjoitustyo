@@ -12,7 +12,7 @@ class Renderer:
         self.game_data = data
 
         self.render()
-        
+
     def render(self):
         pygame.display.update()
 
@@ -24,34 +24,33 @@ class Renderer:
         game_data.action = None
 
         self.draw_board(game_data.game_board)
-    
+
     def draw_board(self, board):
         """
         Draws the game board to the screen.
         :param board: The game board.
         """
         sq_size = 100
-        height = 700
         radius = int(sq_size / 2 - 5)
 
-        for c in range(board.cols):
-            for r in range(board.rows):
+        for col in range(board.cols):
+            for row in range(board.rows):
                 pygame.draw.rect(
                     self.screen,
                     blue,
-                    (c * sq_size, (r + 1) * sq_size, sq_size, sq_size),
+                    (col * sq_size, (row + 1) * sq_size, sq_size, sq_size),
                 )
                 aacircle(
                     self.screen,
-                    int(c * sq_size + sq_size / 2),
-                    int((r + 1) * sq_size + sq_size / 2),
+                    int(col * sq_size + sq_size / 2),
+                    int((row + 1) * sq_size + sq_size / 2),
                     radius,
                     black,
                 )
                 filled_circle(
                     self.screen,
-                    int(c * sq_size + sq_size / 2),
-                    int((r + 1) * sq_size + sq_size / 2),
+                    int(col * sq_size + sq_size / 2),
+                    int((row + 1) * sq_size + sq_size / 2),
                     radius,
                     black,
                 )

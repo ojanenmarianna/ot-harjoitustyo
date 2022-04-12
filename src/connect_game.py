@@ -1,9 +1,7 @@
-import math
 import os
 import sys
 import pygame
 from data import GameData
-from board import GameBoard
 from renderer import Renderer
 
 

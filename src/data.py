@@ -22,7 +22,7 @@ class GameData:
         self.last_move_col = []
         self.game_board = GameBoard()
         self.action = None
-        
+
         self.sq_size: int = 100
         self.width: int = 7*self.sq_size
         self.height: int = 6*self.sq_size

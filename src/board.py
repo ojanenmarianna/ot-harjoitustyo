@@ -18,7 +18,7 @@ class GameBoard():
         self.print_board()
 
     def print_board(self):
-        """ 
+        """
         Prints the state of the board to the console
         """
         print(np.flip(self.board, 0))

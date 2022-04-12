@@ -1,18 +1,20 @@
 import pygame
-from board import GameBoard
+from game_loop import GameLoop
+from renderer import Renderer
+from data import GameData
 
 
 def main():
-    pygame.init()
+	width = 700
+	height = 600   	
+	display = pygame.display.set_mode((width, height))
 
-    board = GameBoard()
-    board.print_board()
-    board.add_token(2,6)
-    print("*****************")
-    board.print_board()
-    # Done! Time to quit.
-    pygame.quit()
-    
+	pygame.display.set_caption("Conncet 4")
+	renderer = Renderer(display, GameData)
+	game_loop = GameLoop(renderer)
 
-if __name__ == "__main__":
-    main()
+	pygame.init()
+	game_loop.start()
+
+if __name__ == '__main__':
+	main()

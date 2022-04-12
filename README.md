@@ -34,3 +34,11 @@ poetry run invoke start
 ```bash
 poetry run invoke start
 ```
+
+2. Koodin laatutarkistuksen voi suorittaa komennolla
+
+```bash
+poetry shell
+pylint src
+```
+

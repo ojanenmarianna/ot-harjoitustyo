@@ -18,7 +18,7 @@ class GameLoop:
         game.draw()
 
         pygame.display.update()
-        pygame.time.wait(1000)
+        pygame.time.wait(10000)
 
     def _handle_events(self):
         pass

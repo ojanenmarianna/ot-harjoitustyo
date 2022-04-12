@@ -32,5 +32,5 @@ poetry run invoke start
 1. Ohjelman voi suorittaa komentoriviltä komennolla
 
 ```bash
-poetry run python3 src/index.py
+poetry run invoke start
 ```

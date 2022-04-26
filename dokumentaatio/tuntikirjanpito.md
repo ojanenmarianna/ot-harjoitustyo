@@ -8,4 +8,6 @@
 | 5.4.  | 2    | koodin ja projektin rakenteen alustusta |
 | 11.4. | 3    | Pelilaudan rakentamista |
 | 12.4. | 5    | Pelilaudan rakentamista ja koodin refaktorointia |
-| yhteensä | 16 |
+| 25.4. | 4    | Rakensin pelistä toimivan version komentoriville |
+| 26.4. | 8    | Rikoin kaiken eilen tekemäni, enkä saanut mitään näkyvää toiminnallisuutta aikaan |
+| yhteensä | 28 |

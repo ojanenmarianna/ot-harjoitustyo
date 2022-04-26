@@ -8,3 +8,8 @@
 ## Viikko 4
 - Sovellus luo pelilaudan
 - Pylint otettu käyttöön
+
+
+## Viikko 5
+- Edelleen samat, kun viikolla 4. Harmittaa, koska käytin tällä viikolla aika paljon aikaa, ja eri osien toimimattomuus turhauttaa varsinkin,
+kun kyse tuntuu olevan aika triviaaleista jutuista (esim. kuvan piirtäminen näytölle ei toimi).

@@ -1,7 +1,8 @@
+# pylint: disable=invalid-name
 import pygame
 from pygame.gfxdraw import aacircle, filled_circle
 
-from sprites.assets import red_chip, yellow_chip, black_chip
+from assets.assets import red_chip, yellow_chip, black_chip
 from config import blue, black
 from data import GameData
 

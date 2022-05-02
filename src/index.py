@@ -2,6 +2,7 @@ import pygame
 from game_loop import GameLoop
 from renderer import Renderer
 from data import GameData
+from clock import Clock
 
 CELL_SIZE = 100
 
@@ -15,7 +16,8 @@ def main():
     pygame.display.set_caption("Connect Four")
 
     renderer = Renderer(display, GameData)
-    game_loop = GameLoop(renderer)
+    clock = Clock()
+    game_loop = GameLoop(renderer, clock)
 
     pygame.init()
     game_loop.start()

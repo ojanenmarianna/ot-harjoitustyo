@@ -25,12 +25,6 @@ class ConnectGame:
     def quit(self):
         sys.exit()
 
-    def update(self):
-        if self.game_data.game_over:
-            print(os.getpgid())
-            pygame.time.wait(1000)
-            os.system("game_loop.py")
-
     def draw(self):
         self.renderer.draw(self.game_data)
 

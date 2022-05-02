@@ -7,10 +7,12 @@ from board import GameBoard
 
 
 class GameLoop:
-    def __init__(self, renderer: Renderer):
+    def __init__(self, renderer: Renderer, clock):
         self._renderer = renderer
         self.data = GameData()
+        self.board = GameBoard()
         self.game = None
+        self._clock = clock
         self.game_over = False
         self.turn = 0
 
@@ -25,12 +27,9 @@ class GameLoop:
             if self._handle_events() is False:
                 break
             #self.game.print_board()
-            self.game.update()
-            self._render()
+            pygame.display.flip()
+            self._clock.tick(30)
             self.game.draw()
-
-    def _render(self):
-        self._renderer.render()
 
     def _handle_events(self):
         for event in pygame.event.get():
@@ -43,9 +42,14 @@ class GameLoop:
                         row = self.game.get_next_open_row(col)
                         self.game.drop_piece(row, col, 1)
 
-                        if self.game.winning_move(1):
-                            print("Player 1 wins!")
-                            self.game_over = True
+                    if self.game.tie_move():
+                        print("It's a tie!")
+                        self.game_over = True
+
+                    if self.game.winning_move(1):
+                        print("Player 1 wins!")
+                        self.game_over = True
+
                     self.turn += 1
                     break
 
@@ -57,9 +61,13 @@ class GameLoop:
                         row = self.game.get_next_open_row(col)
                         self.game.drop_piece(row, col, 2)
 
-                        if self.game.winning_move(2):
-                            print("Player 2 wins!")
-                            self.game_over = True
+                    if self.game.tie_move():
+                        print("It's a tie!")
+                        self.game_over = True
+
+                    if self.game.winning_move(2):
+                        print("Player 2 wins!")
+                        self.game_over = True
 
                     self.turn -=1
                     break

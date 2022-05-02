@@ -18,10 +18,7 @@ class Renderer:
         self.screen = screen
         self.game_data = data
 
-        self.render()
-
-    def render(self):
-        pygame.display.update()
+        pygame.display.flip()
 
     def draw_red_chip(self, x, y):
         """
@@ -131,4 +128,4 @@ class Renderer:
                         int(col * sq_size) + 5, height - int(row * sq_size + sq_size - 5)
                     )
 
-        pygame.display.update()
+        pygame.display.flip()

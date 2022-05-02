@@ -1,20 +1,18 @@
 import pygame
 from pygame.gfxdraw import aacircle, filled_circle
 
-from sprites.black_ball import BlackBall
-from sprites.yellow_ball import YellowBall
-from sprites.red_ball import RedBall
+from sprites.assets import red_chip, yellow_chip, black_chip
 from config import blue, black
 from data import GameData
-from load_image import load_image
+
 class Renderer:
     def __init__(self, screen, data: GameData):
         """
         Initializes the game renderer.
         """
-        self.red_chip = RedBall()
-        self.yellow_chip = YellowBall()
-        self.black_chip = BlackBall()
+        self.red_chip = red_chip
+        self.yellow_chip = yellow_chip
+        self.black_chip = black_chip
 
         self.screen = screen
         self.game_data = data
@@ -28,7 +26,7 @@ class Renderer:
         """
         Draws a red chip.
         """
-        self.screen.blit(self.load_image("red_ball.png"), (x, y))
+        self.screen.blit(self.red_chip, (x, y))
 
     def draw_yellow_chip(self, x, y):
         """

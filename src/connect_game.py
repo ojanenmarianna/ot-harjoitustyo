@@ -39,7 +39,7 @@ class ConnectGame:
         Prints the state of the board to the console
         """
         self.game_data.game_board.print_board()
-    
+
     def is_valid_location(self, col):
         return self.game_data.game_board.is_valid_location(col)
 

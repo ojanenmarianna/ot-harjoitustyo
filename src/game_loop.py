@@ -22,7 +22,7 @@ class GameLoop:
         self.game.draw()
 
         while not self.game_over:
-            if self._handle_events()  == False:
+            if self._handle_events() is False:
                 break
             #self.game.print_board()
             self.game.update()
@@ -31,12 +31,11 @@ class GameLoop:
 
     def _render(self):
         self._renderer.render()
-    
+
     def _handle_events(self):
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if self.turn == 0:
-                    self.turn += 1
                     posx = event.pos[0]
                     col = int(math.floor(posx/self.data.sq_size))
 
@@ -47,10 +46,10 @@ class GameLoop:
                         if self.game.winning_move(1):
                             print("Player 1 wins!")
                             self.game_over = True
+                    self.turn += 1
                     break
 
                 if self.turn == 1:
-                    self.turn -=1
                     posx = event.pos[0]
                     col = int(math.floor(posx/self.data.sq_size))
 
@@ -61,5 +60,8 @@ class GameLoop:
                         if self.game.winning_move(2):
                             print("Player 2 wins!")
                             self.game_over = True
+
+                    self.turn -=1
+                    break
             elif event.type == pygame.QUIT:
                 return False

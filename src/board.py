@@ -30,13 +30,15 @@ class GameBoard():
 
     def is_valid_location(self, col):
         return self.board[self.rows-1][col] == 0
-    
+
     def get_next_open_row(self, col):
         for row in range(self.rows - 1):
             if self.board[row][col] == 0:
                 return row
 
-    def check_square(self, piece, r, c):
+        return self.tie_move()
+
+    def check_square(self, piece, row, col):
         """
         Checks if a particular square is a certain color.  If
         the space is off of the board it returns False.
@@ -45,15 +47,15 @@ class GameBoard():
         :param c: The column to check.
         :return: Whether the square is on the board and has the color/piece specified.
         """
-        if r < 0 or r >= self.rows:
+        if row < 0 or row >= self.rows:
             return False
 
-        if c < 0 or c >= self.cols:
+        if col < 0 or col >= self.cols:
             return False
 
-        return self.board[r][c] == piece
+        return self.board[row][col] == piece
 
-    def horizontal_win(self, piece, r, c):
+    def horizontal_win(self, piece, row, col):
         """
         Checks if there is a horizontal win at the position (r,c)
         :param piece: The color of the chip to check for.
@@ -62,13 +64,13 @@ class GameBoard():
         :return: Whether there is a horizontal win at the position (r, c).
         """
         return (
-            self.check_square(piece, r, c)
-            and self.check_square(piece, r, c + 1)
-            and self.check_square(piece, r, c + 2)
-            and self.check_square(piece, r, c + 3)
+            self.check_square(piece, row, col)
+            and self.check_square(piece, row, col + 1)
+            and self.check_square(piece, row, col + 2)
+            and self.check_square(piece, row, col + 3)
         )
 
-    def vertical_win(self, piece, r, c):
+    def vertical_win(self, piece, row, col):
         """
         Checks if there is vertical win at the position (r, c)
         :param piece: The color of the chip to check for.
@@ -77,30 +79,30 @@ class GameBoard():
         :return: Whether there is a vertical win at the position (r, c)
         """
         return (
-            self.check_square(piece, r, c)
-            and self.check_square(piece, r + 1, c)
-            and self.check_square(piece, r + 2, c)
-            and self.check_square(piece, r + 3, c)
+            self.check_square(piece, row, col)
+            and self.check_square(piece, row + 1, col)
+            and self.check_square(piece, row + 2, col)
+            and self.check_square(piece, row + 3, col)
         )
 
-    def diagonal_win(self, piece, r, c):
+    def diagonal_win(self, piece, row, col):
         """
         Checks if there is a diagonal_win at the position (r, c)
         :param piece: The color of the chip to check for.
-        :param r: The row
-        :param c: The column
+        :param row: The row
+        :param col: The column
         :return: Whether there is a diagonal win at the position (r,c)
         """
         return (
-            self.check_square(piece, r, c)
-            and self.check_square(piece, r + 1, c + 1)
-            and self.check_square(piece, r + 2, c + 2)
-            and self.check_square(piece, r + 3, c + 3)
+            self.check_square(piece, row, col)
+            and self.check_square(piece, row + 1, col + 1)
+            and self.check_square(piece, row + 2, col + 2)
+            and self.check_square(piece, row + 3, col + 3)
         ) or (
-            self.check_square(piece, r, c)
-            and self.check_square(piece, r - 1, c + 1)
-            and self.check_square(piece, r - 2, c + 2)
-            and self.check_square(piece, r - 3, c + 3)
+            self.check_square(piece, row, col)
+            and self.check_square(piece, row - 1, col + 1)
+            and self.check_square(piece, row - 2, col + 2)
+            and self.check_square(piece, row - 3, col + 3)
         )
 
     def winning_move(self, piece):
@@ -109,12 +111,12 @@ class GameBoard():
         :param piece: The color of the chip to check for.
         :return: Whether the current piece has won the game.
         """
-        for c in range(self.cols):
-            for r in range(self.rows):
+        for col in range(self.cols):
+            for row in range(self.rows):
                 if (
-                    self.horizontal_win(piece, r, c)
-                    or self.vertical_win(piece, r, c)
-                    or self.diagonal_win(piece, r, c)
+                    self.horizontal_win(piece, row, col)
+                    or self.vertical_win(piece, row, col)
+                    or self.diagonal_win(piece, row, col)
                 ):
                     return True
         return False
@@ -126,9 +128,9 @@ class GameBoard():
         """
         slots_filled: int = 0
 
-        for c in range(self.cols):
-            for r in range(self.rows):
-                if self.board[r][c] != 0:
+        for col in range(self.cols):
+            for row in range(self.rows):
+                if self.board[row][col] != 0:
                     slots_filled += 1
 
-        return slots_filled == 42
+        return slots_filled == 35

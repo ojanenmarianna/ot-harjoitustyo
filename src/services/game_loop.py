@@ -2,6 +2,7 @@ import pygame
 import math
 from data import GameData
 from ui.game_view import GameView
+from ui.start_view import StartView
 from services.connect_game import ConnectGame
 from services.board import GameBoard
 
@@ -16,11 +17,24 @@ class GameLoop:
         self.game_over = False
         self.turn = 0
 
+        self._current_view = None
+
+    def start_screen(self):
+        screen = pygame.display.set_mode(self.data.size)
+        self._current_view = StartView(screen, self.data.width*100, self.data.height*100)
+        running = True
+        while running:
+            if self._handle_start_menu() is False:
+                break
+            pygame.display.update()
+            self._clock.tick(30)
+            self.start_screen()
+            self._current_view.render()
 
     def start(self):
         screen = pygame.display.set_mode(self.data.size)
         self.game = ConnectGame(self.data, GameView(screen, self.data), GameBoard)
-
+        self._current_view = self.game_view
         self.game.draw()
 
         while not self.game_over:
@@ -30,6 +44,11 @@ class GameLoop:
             pygame.display.flip()
             self._clock.tick(30)
             self.game.draw()
+
+    def _handle_start_menu(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return False
 
     def _handle_events(self):
         for event in pygame.event.get():

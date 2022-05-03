@@ -8,10 +8,8 @@ class StartView:
         self._width = width
         self._height = height
 
-        self.render()
-
     def render(self):
-        self._screen.fill(blue)
+        self._screen.fill(black)
 
         text_font = pygame.font.SysFont('Corbel', 64)
         text_content = "Connect Four"
@@ -28,32 +26,10 @@ class StartView:
         text_font = pygame.font.SysFont(None, 48)
         text_content = "Press 'Enter' to start playing"
         text = text_font.render(
-            text_content, True, white)
+            text_content, True, red)
         rect = text.get_rect()
         self._screen.blit(text, ((self._width - rect[2])//2, 300))
         pygame.draw.line(
             self._screen, white, ((self._width - rect[2])//2, 300 + rect[3]), ((self._width + rect[2])//2, 300 + rect[3]))
-
-        text_font = pygame.font.SysFont(None, 36)
-        text_content = "Press '1' to see game rules"
-        text = text_font.render(text_content, True, red)
-        rect = text.get_rect()
-        self._screen.blit(text, ((self._width - rect[2])//2, 400))
-        pygame.draw.line(
-            self._screen, white, ((self._width - rect[2])//2, 400 + rect[3]), ((self._width + rect[2])//2, 400 + rect[3]))
-
-        text_content = "Press '2' to see control options"
-        text = text_font.render(text_content, True, red)
-        rect = text.get_rect()
-        self._screen.blit(text, ((self._width - rect[2])//2, 450))
-        pygame.draw.line(
-            self._screen, white, ((self._width - rect[2])//2, 450 + rect[3]), ((self._width + rect[2])//2, 450 + rect[3]))
-
-        text_content = "Press '3' to see high scores"
-        text = text_font.render(text_content, True, red)
-        rect = text.get_rect()
-        self._screen.blit(text, ((self._width - rect[2])//2, 500))
-        pygame.draw.line(
-            self._screen, white, ((self._width - rect[2])//2, 500 + rect[3]), ((self._width + rect[2])//2, 500 + rect[3]))
 
         pygame.display.flip()

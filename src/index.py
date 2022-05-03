@@ -20,7 +20,7 @@ def main():
     game_loop = GameLoop(game_view, clock)
 
     pygame.init()
-    game_loop.start()
+    game_loop.start_screen()
 
 if __name__ == '__main__':
     main()

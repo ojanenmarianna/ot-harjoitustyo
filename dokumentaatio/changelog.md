@@ -13,3 +13,8 @@
 ## Viikko 5
 - Edelleen samat, kun viikolla 4. Harmittaa, koska käytin tällä viikolla aika paljon aikaa, ja eri osien toimimattomuus turhauttaa varsinkin,
 kun kyse tuntuu olevan aika triviaaleista jutuista (esim. kuvan piirtäminen näytölle ei toimi).
+
+
+## Viikko 6
+- Peli toimii nyt niin kuin pitääkin. Seuraavaksi toteutan testit, virheilmoitukset sekä pitkäaikaistallennuksen pelin tuloksille.
+- Lisäksi dokumentaatio laahaa pahasti jäljessä, joten sitä on myös työstettävä ensi viikolla.

@@ -1,9 +1,9 @@
 import pygame
 import math
 from data import GameData
-from renderer import Renderer
-from connect_game import ConnectGame
-from board import GameBoard
+from ui.renderer import Renderer
+from services.connect_game import ConnectGame
+from services.board import GameBoard
 
 
 class GameLoop:

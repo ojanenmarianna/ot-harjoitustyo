@@ -1,7 +1,7 @@
 import unittest
 import pygame
 
-from game_loop import GameLoop
+from services.game_loop import GameLoop
 
 class StubRenderer:
     def render(self):

@@ -1,6 +1,6 @@
 from typing import Tuple
 
-from board import GameBoard
+from services.board import GameBoard
 
 class GameData:
     """

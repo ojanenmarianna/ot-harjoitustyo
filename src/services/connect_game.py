@@ -3,7 +3,7 @@ import sys
 import pygame
 
 from data import GameData
-from renderer import Renderer
+from ui.renderer import Renderer
 
 
 class ConnectGame:

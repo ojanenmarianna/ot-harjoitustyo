@@ -17,4 +17,4 @@ kun kyse tuntuu olevan aika triviaaleista jutuista (esim. kuvan piirtäminen nä
 
 ## Viikko 6
 - Peli toimii nyt niin kuin pitääkin. Seuraavaksi toteutan testit, virheilmoitukset sekä pitkäaikaistallennuksen pelin tuloksille.
-- Lisäksi dokumentaatio laahaa pahasti jäljessä, joten sitä on myös työstettävä tällä viikolla.
+- Lisäksi dokumentaatio laahaa pahasti jäljessä, joten sitä on myös työstettävä ensi viikolla.

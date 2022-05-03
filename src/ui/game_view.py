@@ -7,9 +7,12 @@ from config import blue, black
 from data import GameData
 
 class GameView:
+    """
+    Holds the logic to render the game view screen.
+    """
     def __init__(self, screen, data: GameData):
         """
-        Initializes the game renderer.
+        Initializes the game view.
         """
         self.red_chip = red_chip
         self.yellow_chip = yellow_chip
@@ -40,7 +43,7 @@ class GameView:
 
     def draw_coin(self, game_data, x, y):
         """
-        Draws a coin to the specified position
+        Draws a chip to the specified position
         using the color of the current player.
         """
         if game_data.turn == 0:
@@ -88,6 +91,7 @@ class GameView:
     def draw_board(self, board):
         """
         Draws the game board to the screen.
+
         :param board: The game board.
         """
         sq_size = self.game_data.sq_size

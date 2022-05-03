@@ -3,6 +3,9 @@ import pygame
 from config import black, blue, red, white
 
 class StartView:
+    """
+    Draws the start view.
+    """
     def __init__(self, screen, width, height):
         self._screen = screen
         self._width = width

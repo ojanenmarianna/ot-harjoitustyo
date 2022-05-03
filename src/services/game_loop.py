@@ -9,6 +9,9 @@ from services.board import GameBoard
 
 
 class GameLoop:
+    """
+    GameLoop class renders the views to the screen.
+    """
     def __init__(self, start_view: StartView, game_view: GameView, clock):
         self.game_view = game_view
         self.start_view = start_view
@@ -21,6 +24,9 @@ class GameLoop:
 
 
     def start_screen(self):
+        """
+        Renders the start view screen.
+        """
         current_view = self.start_view
         running = True
         while running:
@@ -31,6 +37,9 @@ class GameLoop:
             current_view.render()
 
     def start(self):
+        """
+        Renders the game view screen.
+        """
         screen = pygame.display.set_mode(self.data.size)
         self.game = ConnectGame(self.data, GameView(screen, self.data), GameBoard)
         self.game.draw()
@@ -44,6 +53,9 @@ class GameLoop:
 
     # event handle tullaan eriyttämään omaksi luokakseen
     def _handle_start_menu(self):
+        """
+        Handles the events on the start view.
+        """
         for event in pygame.event.get():
 
             if event.type == pygame.KEYDOWN:
@@ -53,6 +65,9 @@ class GameLoop:
                 return False
 
     def _handle_events(self):
+        """
+        Handles events on the actual game.
+        """
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if self.turn == 0:

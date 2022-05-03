@@ -28,7 +28,6 @@ class GameLoop:
                 break
             pygame.display.update()
             self._clock.tick(30)
-            self.start_screen()
             self._current_view.render()
 
     def start(self):

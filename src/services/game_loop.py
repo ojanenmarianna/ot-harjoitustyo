@@ -8,8 +8,9 @@ from services.board import GameBoard
 
 
 class GameLoop:
-    def __init__(self, game_view: GameView, clock):
+    def __init__(self, start_view: StartView, game_view: GameView, clock):
         self.game_view = game_view
+        self.start_view = start_view
         self.data = GameData()
         self.board = GameBoard()
         self.game = None
@@ -20,32 +21,32 @@ class GameLoop:
         self._current_view = None
 
     def start_screen(self):
-        screen = pygame.display.set_mode(self.data.size)
-        self._current_view = StartView(screen, self.data.width*100, self.data.height*100)
+        self._current_view = self.start_view
         running = True
         while running:
             if self._handle_start_menu() is False:
                 break
             pygame.display.update()
-            self._clock.tick(30)
+            self._clock.tick(1)
             self._current_view.render()
 
     def start(self):
         screen = pygame.display.set_mode(self.data.size)
         self.game = ConnectGame(self.data, GameView(screen, self.data), GameBoard)
-        self._current_view = self.game_view
         self.game.draw()
 
         while not self.game_over:
             if self._handle_events() is False:
                 break
-            #self.game.print_board()
             pygame.display.flip()
-            self._clock.tick(30)
+            self._clock.tick(70)
             self.game.draw()
 
     def _handle_start_menu(self):
         for event in pygame.event.get():
+
+            if event.type == pygame.KEYDOWN:
+                self.start()
             if event.type == pygame.QUIT:
                 return False
 

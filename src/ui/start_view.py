@@ -24,7 +24,7 @@ class StartView:
         pygame.display.flip()
 
         text_font = pygame.font.SysFont(None, 48)
-        text_content = "Press 'Enter' to start playing"
+        text_content = "Press any key to start playing"
         text = text_font.render(
             text_content, True, red)
         rect = text.get_rect()

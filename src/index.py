@@ -1,6 +1,6 @@
 import pygame
 from services.game_loop import GameLoop
-from ui.renderer import Renderer
+from ui.game_view import Renderer
 from data import GameData
 from clock import Clock
 

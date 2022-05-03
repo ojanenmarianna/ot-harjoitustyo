@@ -1,7 +1,7 @@
 import pygame
 import math
 from data import GameData
-from ui.renderer import Renderer
+from ui.game_view import Renderer
 from services.connect_game import ConnectGame
 from services.board import GameBoard
 

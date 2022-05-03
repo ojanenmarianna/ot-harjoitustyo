@@ -23,24 +23,22 @@ Sovelluksen toiminta on testattu käyttäen Pythonin versiota `3.8`. Vanhempien 
 poetry install
 ```
 
-2. Käynnistä sovellus komennolla:
-
-```bash
-poetry run invoke start
-```
-
 ## Komentorivitoiminnot
 
-1. Ohjelman voi suorittaa komentoriviltä komennolla
+1. Käynnistä sovellus komennolla:
 
 ```bash
 poetry run invoke start
 ```
 
-2. Koodin laatutarkistuksen voi suorittaa komennolla
+2. Testit voi suorittaa komennolla
+```bash
+poetry run invoke test
+```
+
+3. Koodin laatutarkistuksen voi suorittaa komennolla
 
 ```bash
-poetry shell
-pylint src
+poetry run invoke lint
 ```
 

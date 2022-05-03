@@ -19,17 +19,16 @@ class GameLoop:
         self.game_over = False
         self.turn = 0
 
-        self._current_view = None
 
     def start_screen(self):
-        self._current_view = self.start_view
+        current_view = self.start_view
         running = True
         while running:
             if self._handle_start_menu() is False:
                 break
             pygame.display.update()
             self._clock.tick(1)
-            self._current_view.render()
+            current_view.render()
 
     def start(self):
         screen = pygame.display.set_mode(self.data.size)
@@ -43,11 +42,13 @@ class GameLoop:
             self._clock.tick(70)
             self.game.draw()
 
+    # event handle tullaan eriyttämään omaksi luokakseen
     def _handle_start_menu(self):
         for event in pygame.event.get():
 
             if event.type == pygame.KEYDOWN:
                 self.start()
+
             if event.type == pygame.QUIT:
                 return False
 

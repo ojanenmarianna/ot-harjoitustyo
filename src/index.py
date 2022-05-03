@@ -1,9 +1,9 @@
 import pygame
 from services.game_loop import GameLoop
-from ui.game_view import GameData, GameView
+from ui.game_view import GameView
+from ui.start_view import StartView
 from data import GameData
 from clock import Clock
-from ui.start_view import StartView
 
 CELL_SIZE = 100
 

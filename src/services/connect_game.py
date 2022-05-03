@@ -1,6 +1,4 @@
-import os
 import sys
-import pygame
 
 from data import GameData
 from ui.game_view import GameView

@@ -10,7 +10,8 @@ class GameData:
     radius: int
     height: int
     width: int
-    sq_size: Tuple[int, int]
+    sq_size: int
+    size = Tuple[int, int]
     game_over: bool
     turn: int
     game_board: GameBoard

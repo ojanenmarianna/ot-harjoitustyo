@@ -1,5 +1,6 @@
-import pygame
 import math
+import pygame
+
 from data import GameData
 from ui.game_view import GameView
 from ui.start_view import StartView

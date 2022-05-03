@@ -13,7 +13,7 @@ Sovellusta voi käyttää joko vieraana tai normaalina käyttäjänä.
 
 ### Ennen kirjautumista
 
-- Peliä voi pelata vieraana, jolloin pelien tulokset eivät jää tietokantaan muistiin.
+- [x] Peliä voi pelata vieraana, jolloin pelien tulokset eivät jää tietokantaan muistiin.
 - Käyttäjä voi luoda uuden tunnuksen
   - Käyttäjätunnuksen tulee olla uniikki ja pituudeltaan vähintään 3 merkkiä
 - Käyttäjä voi kirjautua sisään

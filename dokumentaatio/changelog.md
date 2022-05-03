@@ -16,4 +16,4 @@ kun kyse tuntuu olevan aika triviaaleista jutuista (esim. kuvan piirtäminen nä
 
 
 ## Viikko 6
-- Peli toimii nyt niin kuin pitääkin. Seuraavaksi toteutan testit, sekä pitkäaikaistallennuksen pelin tuloksille.
+- Peli toimii nyt niin kuin pitääkin. Seuraavaksi toteutan testit, virheilmoitukset sekä pitkäaikaistallennuksen pelin tuloksille.

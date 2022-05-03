@@ -6,7 +6,7 @@ from assets.assets import red_chip, yellow_chip, black_chip
 from config import blue, black
 from data import GameData
 
-class Renderer:
+class GameView:
     def __init__(self, screen, data: GameData):
         """
         Initializes the game renderer.

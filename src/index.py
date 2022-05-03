@@ -1,6 +1,6 @@
 import pygame
 from services.game_loop import GameLoop
-from ui.game_view import Renderer
+from ui.game_view import GameData, GameView
 from data import GameData
 from clock import Clock
 
@@ -15,9 +15,9 @@ def main():
 
     pygame.display.set_caption("Connect Four")
 
-    renderer = Renderer(display, GameData)
+    game_view = GameView(display, GameData)
     clock = Clock()
-    game_loop = GameLoop(renderer, clock)
+    game_loop = GameLoop(game_view, clock)
 
     pygame.init()
     game_loop.start()

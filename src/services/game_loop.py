@@ -1,14 +1,14 @@
 import pygame
 import math
 from data import GameData
-from ui.game_view import Renderer
+from ui.game_view import GameView
 from services.connect_game import ConnectGame
 from services.board import GameBoard
 
 
 class GameLoop:
-    def __init__(self, renderer: Renderer, clock):
-        self._renderer = renderer
+    def __init__(self, game_view: GameView, clock):
+        self.game_view = game_view
         self.data = GameData()
         self.board = GameBoard()
         self.game = None
@@ -19,7 +19,7 @@ class GameLoop:
 
     def start(self):
         screen = pygame.display.set_mode(self.data.size)
-        self.game = ConnectGame(self.data, Renderer(screen, self.data), GameBoard)
+        self.game = ConnectGame(self.data, GameView(screen, self.data), GameBoard)
 
         self.game.draw()
 

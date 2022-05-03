@@ -3,7 +3,7 @@ import sys
 import pygame
 
 from data import GameData
-from ui.game_view import Renderer
+from ui.game_view import GameView
 
 
 class ConnectGame:
@@ -12,21 +12,21 @@ class ConnectGame:
     """
 
     game_data: GameData
-    renderer: Renderer
+    game_view: GameView
 
-    def __init__(self, game_data: GameData, renderer: Renderer, game_board):
+    def __init__(self, game_data: GameData, game_view: GameView, game_board):
         """
         Initializes the game.
         """
         self.board = game_board
         self.game_data = game_data
-        self.renderer = renderer
+        self.game_view = game_view
 
     def quit(self):
         sys.exit()
 
     def draw(self):
-        self.renderer.draw(self.game_data)
+        self.game_view.draw(self.game_data)
 
     def print_board(self):
         """

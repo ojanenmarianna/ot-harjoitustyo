@@ -16,13 +16,14 @@ def main():
 
     pygame.display.set_caption("Connect Four")
 
+    clock = Clock()
     game_view = GameView(display, GameData)
     start_view = StartView(display, display_width, display_height)
-    clock = Clock()
+
     game_loop = GameLoop(start_view, game_view, clock)
 
     pygame.init()
-    game_loop.start_screen()
+    game_loop.show_start_screen()
 
 if __name__ == '__main__':
     main()

@@ -5,6 +5,10 @@ def start(ctx):
     ctx.run("python3 src/index.py", pty=True)
 
 @task
+def build(ctx):
+	ctx.run("python3 src/build.py")
+
+@task
 def test(ctx):
     ctx.run("pytest src", pty=True)
 
@@ -14,7 +18,7 @@ def coverage(ctx):
 
 
 @task(coverage)
-def coverage_report(ctx):
+def report(ctx):
     ctx.run("coverage html", pty=True)
 
 

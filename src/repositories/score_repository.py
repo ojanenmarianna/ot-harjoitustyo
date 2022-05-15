@@ -1,4 +1,3 @@
-from re import S
 from database_connection import get_database_connection
 
 class ScoreRepository:

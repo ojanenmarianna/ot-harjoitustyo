@@ -5,7 +5,6 @@ from data import GameData
 from ui.game_view import GameView
 from ui.start_view import StartView
 from ui.event_queue import EventQueue
-from ui.new_score_view import NewScoreView
 from services.connect_game import ConnectGame
 from services.board import GameBoard
 
@@ -73,8 +72,7 @@ class GameLoop:
             event = self.event_queue.get()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
-                    score = self.start()
-                    return score
+                    self.start()
 
                 if event.key == pygame.K_1:
                     #renderer.show_game_rules()
@@ -131,12 +129,10 @@ class GameLoop:
                     if self.game.tie_move():
                         print("It's a tie!")
                         self.game_over = True
-                        return 0
 
                     if self.game.winning_move(1):
                         print("Player 1 wins!")
                         self.game_over = True
-                        return 1
 
                     self.turn += 1
                     break
@@ -152,16 +148,14 @@ class GameLoop:
                     if self.game.tie_move():
                         print("It's a tie!")
                         self.game_over = True
-                        return 0
 
                     if self.game.winning_move(2):
                         print("Player 2 wins!")
                         self.game_over = True
-                        return 2
 
                     self.turn -=1
                     break
-    
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:
                     while True:

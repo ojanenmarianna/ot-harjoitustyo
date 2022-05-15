@@ -3,16 +3,16 @@ import pygame
 from pygame.gfxdraw import aacircle, filled_circle
 
 from assets.assets import red_chip, yellow_chip, black_chip
-from config import blue, black
+from config import blue, black, red, white
 from data import GameData
 
 class GameView:
     """
-    Holds the logic to render the game view screen.
+    Sisältää logiikan pelinäkymän renderöintiin.
     """
     def __init__(self, screen, data: GameData):
         """
-        Initializes the game view.
+        Alustaa pelinäkymän.
         """
         self.red_chip = red_chip
         self.yellow_chip = yellow_chip
@@ -24,27 +24,18 @@ class GameView:
         pygame.display.flip()
 
     def draw_red_chip(self, x, y):
-        """
-        Draws a red chip.
-        """
         self.screen.blit(self.red_chip, (x, y))
 
     def draw_yellow_chip(self, x, y):
-        """
-        Draws a yellow chip.
-        """
         self.screen.blit(self.yellow_chip, (x, y))
 
     def draw_black_chip(self, x, y):
-        """
-        Draws a black chip.
-        """
         self.screen.blit(self.black_chip, (x, y))
 
     def draw_coin(self, game_data, x, y):
         """
-        Draws a chip to the specified position
-        using the color of the current player.
+        Piirtää pelimerkin tiettyyn paikkaan käyttäen
+        nykyisen pelaajan väriä.
         """
         if game_data.turn == 0:
             self.screen.blit(self.red_chip, (x, y))
@@ -54,7 +45,7 @@ class GameView:
 
     def draw(self, game_data: GameData):
         """
-        Draws the game state, including the board and the pieces.
+        Piirtää pelin tilan, mukaan lukien laudan ja merkit.
         """
         if game_data.action == "undo":
             filled_circle(
@@ -90,9 +81,9 @@ class GameView:
 
     def draw_board(self, board):
         """
-        Draws the game board to the screen.
+        Piirtää pelilaudan näytölle.
 
-        :param board: The game board.
+        :param board: Pelilauta
         """
         sq_size = self.game_data.sq_size
         height = self.game_data.height
@@ -132,4 +123,20 @@ class GameView:
                         int(col * sq_size) + 5, height - int(row * sq_size + sq_size - 5)
                     )
 
+        pygame.display.flip()
+
+    def pause(self):
+        self.screen.fill(black)
+        pygame.display.flip()
+        text_font = pygame.font.SysFont("Corbel", 48)
+        text_content = "Paused"
+        text = text_font.render(text_content, True, white)
+
+        self.screen.blit(text, (300, 300))
+
+        text_font = pygame.font.SysFont(None, 36)
+        text_content = "Press 'P' to continue"
+        text = text_font.render(text_content, True, red)
+
+        self.screen.blit(text, (260, 450))
         pygame.display.flip()

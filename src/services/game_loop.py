@@ -4,46 +4,53 @@ import pygame
 from data import GameData
 from ui.game_view import GameView
 from ui.start_view import StartView
+from ui.event_queue import EventQueue
+from ui.new_score_view import NewScoreView
 from services.connect_game import ConnectGame
 from services.board import GameBoard
 
 
 class GameLoop:
     """
-    GameLoop class renders the views to the screen.
+    GameLoop luokka renderöi näkymät näytölle.
     """
     def __init__(self, start_view: StartView, game_view: GameView, clock):
         self.game_view = game_view
         self.start_view = start_view
         self.data = GameData()
         self.board = GameBoard()
+        self.event_queue = EventQueue()
         self.game = None
         self._clock = clock
         self.game_over = False
         self.turn = 0
 
+        self._current_view = None
 
-    def start_screen(self):
+    def show_start_screen(self):
         """
         Renders the start view screen.
         """
-        current_view = self.start_view
+        self._current_view = self.start_view
+        self._current_view.render()
         running = True
         while running:
             if self._handle_start_menu() is False:
                 break
             pygame.display.update()
             self._clock.tick(1)
-            current_view.render()
+
+
 
     def start(self):
         """
-        Renders the game view screen.
+        Renderöi pelinäkymän.
         """
         screen = pygame.display.set_mode(self.data.size)
-        self.game = ConnectGame(self.data, GameView(screen, self.data), GameBoard)
+        game_view = GameView(screen, self.data)
+        self.game = ConnectGame(self.data, game_view, GameBoard)
         self.game.draw()
-
+        self._current_view = game_view
         while not self.game_over:
             if self._handle_events() is False:
                 break
@@ -51,12 +58,55 @@ class GameLoop:
             self._clock.tick(70)
             self.game.draw()
 
+    def show_pause(self):
+        '''Näyttää pause-näytön
+        '''
+        self._current_view.pause()
+        self._clock.tick(1)
+
     # event handle tullaan eriyttämään omaksi luokakseen
     def _handle_start_menu(self):
         """
-        Handles the events on the start view.
+        Käsittelee aloitusnäkymän tapahtumat.
         """
-        for event in pygame.event.get():
+        while True:
+            event = self.event_queue.get()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    score = self.start()
+                    return score
+
+                if event.key == pygame.K_1:
+                    #renderer.show_game_rules()
+                    while True:
+                        event = self.event_queue.get()
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_r:
+                                return
+                        elif event.type == pygame.QUIT:
+                            self.game.quit()
+
+                if event.key == pygame.K_2:
+                    #renderer.show_control_options()
+                    while True:
+                        event = self.event_queue.get()
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_r:
+                                return
+                        elif event.type == pygame.QUIT:
+                            self.game.quit()
+
+                if event.key == pygame.K_3:
+                    #renderer.show_high_scores()
+                    while True:
+                        event = self.event_queue.get()
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_r:
+                                return
+                            if event.key == pygame.K_d:
+                                return "DELETE"
+                        elif event.type == pygame.QUIT:
+                            self.game.quit()
 
             if event.type == pygame.KEYDOWN:
                 self.start()
@@ -66,7 +116,7 @@ class GameLoop:
 
     def _handle_events(self):
         """
-        Handles events on the actual game.
+        Käsittelee pelin tapahtumat
         """
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -81,10 +131,12 @@ class GameLoop:
                     if self.game.tie_move():
                         print("It's a tie!")
                         self.game_over = True
+                        return 0
 
                     if self.game.winning_move(1):
                         print("Player 1 wins!")
                         self.game_over = True
+                        return 1
 
                     self.turn += 1
                     break
@@ -100,12 +152,26 @@ class GameLoop:
                     if self.game.tie_move():
                         print("It's a tie!")
                         self.game_over = True
+                        return 0
 
                     if self.game.winning_move(2):
                         print("Player 2 wins!")
                         self.game_over = True
+                        return 2
 
                     self.turn -=1
                     break
+    
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_p:
+                    while True:
+                        self.show_pause()
+                        if event.type == pygame.QUIT:
+                            self.game.quit()
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_p:
+                                self.game.draw()
+                                break
+
             elif event.type == pygame.QUIT:
                 return False

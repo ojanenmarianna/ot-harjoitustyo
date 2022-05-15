@@ -6,7 +6,7 @@ from ui.game_view import GameView
 
 class ConnectGame:
     """
-    Holds all of the game logic and game data.
+    Sisältää pelin logiikan ja datan.
     """
 
     game_data: GameData
@@ -14,7 +14,7 @@ class ConnectGame:
 
     def __init__(self, game_data: GameData, game_view: GameView, game_board):
         """
-        Initializes the game.
+        Alustaa pelin.
         """
         self.board = game_board
         self.game_data = game_data
@@ -28,36 +28,36 @@ class ConnectGame:
 
     def print_board(self):
         """
-        Prints the state of the board to the console
+        Printtaa laudan tilanteen konsoliin.
         """
         self.game_data.game_board.print_board()
 
     def is_valid_location(self, col):
         """
-        Checks if the mouse is inside the board.
+        Tarkistaa, onko hiiri laudan sisällä.
         """
         return self.game_data.game_board.is_valid_location(col)
 
     def get_next_open_row(self, col):
         """
-        Checks if the column has empty rows.
+        Tarkistaa, onko kolumnilla tyhjiä rivejä.
         """
         return self.game_data.game_board.get_next_open_row(col)
 
     def drop_piece(self, row, col, piece):
         """
-        Drops the chip into the right location.
+        Tiputtaa pelimerkin oikeaan paikkaan.
         """
         self.game_data.game_board.drop_piece(row, col, piece)
 
     def winning_move(self, piece):
         """
-        Checks if the player has 4 chips on a row the board.
+        Tarkistaa, onko pelaajalla 4 merkkiä peräkkäin pelilaudalla.
         """
         return self.game_data.game_board.winning_move(piece)
 
     def tie_move(self):
         """
-        Checks if the board is full of chips.
+        Tarkistaa, onko peliluta täynnä.
         """
         return self.game_data.game_board.tie_move()

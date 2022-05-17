@@ -10,18 +10,25 @@ poetry install
 
 ## Komentorivitoiminnot
 
-1. Käynnistä sovellus komennolla:
+
+1. Alusta tietokanta sovelluksen käyttöä varten komennolla:
+
+```bash
+poetry run invoke build
+```
+
+2. Käynnistä sovellus komennolla:
 
 ```bash
 poetry run invoke start
 ```
 
-2. Testit voi suorittaa komennolla
+3. Testit voi suorittaa komennolla
 ```bash
 poetry run invoke test
 ```
 
-3. Koodin laatutarkistuksen voi suorittaa komennolla
+4. Koodin laatutarkistuksen voi suorittaa komennolla
 
 ```bash
 poetry run invoke lint

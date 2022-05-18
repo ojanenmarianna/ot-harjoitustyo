@@ -60,7 +60,8 @@ class NewScoreView:
             self._screen.blit(
                 text, (self._width//2 - 100, self._height//2 - 15))
             pygame.display.flip()
-            self._clock.tick(20)
+            self._clock.tick(10)
+
 
     def handle_name_input(self, text, event_queue):
         event = event_queue.get()

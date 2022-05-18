@@ -22,5 +22,18 @@ class ScoreRepository:
 
         return high_scores
 
+    def add_new_win(self, name):
+        cursor = self._connection.cursor()
+        score = cursor.execute('SELECT score FROM Scores WHERE name=?', [name]).fetchone()
+        if score is None:
+            cursor.execute(
+                    "INSERT INTO Scores (name, score) VALUES (?, ?)", 
+                    (name, 1)
+        )
+        else:
+            cursor.execute("UPDATE Scores SET score=score+1 WHERE name=?", [name])
+
+        self._connection.commit()
+
 score_repository = ScoreRepository(get_database_connection())
 scores = score_repository.find_all()

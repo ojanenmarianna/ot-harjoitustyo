@@ -11,11 +11,12 @@ class Renderer:
     """
     Renderer-luokka renderöi näkymät näytölle.
     """
-    def __init__(self, start_view, game_view, game_rules_view, new_score_view, clock):
+    def __init__(self, start_view, game_view, game_rules_view, new_score_view, score_repository, clock):
         self.game_view = game_view
         self.start_view = start_view
         self.game_rules_view = game_rules_view
         self.new_score_view = new_score_view
+        self.score_repository = score_repository
         self.data = GameData()
         self.event_queue = EventQueue()
         self.game = None
@@ -47,8 +48,9 @@ class Renderer:
             pygame.display.update()
 
     def show_new_score_screen(self):
-        self.new_score_view.render(self.winner, self.event_queue)
+        name = self.new_score_view.render(self.winner, self.event_queue)
         self.show_start_screen()
+        return name
 
     def start(self):
         """
@@ -65,12 +67,11 @@ class Renderer:
             pygame.display.flip()
             self._clock.tick(70)
             self.game.draw()
-        self.show_new_score_screen()
+        name = self.show_new_score_screen()
+        self.save_new_win(name)
 
-    def show_pause(self):
-        '''Näyttää pause-näytön
-        '''
-        self._current_view.pause()
+    def save_new_win(self, name):
+        self.score_repository.add_new_win(name)
 
     # event handle tullaan eriyttämään omaksi luokakseen
     def _handle_start_menu(self):
@@ -91,7 +92,6 @@ class Renderer:
                     while True:
                         for event in pygame.event.get():
                             if event.type == pygame.KEYDOWN:
-                                print("jotain")
                                 if event.key == pygame.K_r:
                                     return
                             elif event.type == pygame.QUIT:
@@ -122,17 +122,12 @@ class Renderer:
                     if self.game.is_valid_location(col):
                         row = self.game.get_next_open_row(col)
                         self.game.drop_piece(row, col, 1)
-
                     if self.game.tie_move():
-                        print("It's a tie!")
                         self.winner = 0
                         self.game_over = True
-
                     if self.game.winning_move(1):
-                        print("Player 1 wins!")
                         self.winner = 1
                         self.game_over = True
-
 
                     self.turn += 1
                     break
@@ -144,31 +139,15 @@ class Renderer:
                     if self.game.is_valid_location(col):
                         row = self.game.get_next_open_row(col)
                         self.game.drop_piece(row, col, 2)
-
                     if self.game.tie_move():
-                        print("It's a tie!")
                         self.winner = 0
                         self.game_over = True
-
                     if self.game.winning_move(2):
-                        print("Player 2 wins!")
                         self.winner = 2
                         self.game_over = True
 
-
                     self.turn -=1
                     break
-
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_p:
-                    while True:
-                        self.show_pause()
-                        if event.type == pygame.QUIT:
-                            self.game.quit()
-                        if event.type == pygame.KEYDOWN:
-                            if event.key == pygame.K_p:
-                                self.game.draw()
-                                break
 
             elif event.type == pygame.QUIT:
                 return False

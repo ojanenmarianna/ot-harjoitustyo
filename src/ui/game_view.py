@@ -3,7 +3,7 @@ import pygame
 from pygame.gfxdraw import aacircle, filled_circle
 
 from assets.assets import red_chip, yellow_chip, black_chip
-from config import blue, black, red, white
+from config import blue, black
 from data import GameData
 
 class GameView:
@@ -122,20 +122,4 @@ class GameView:
                         int(col * sq_size) + 5, height - int(row * sq_size + sq_size - 5)
                     )
 
-        pygame.display.flip()
-
-    def pause(self):
-        self.screen.fill(black)
-        pygame.display.flip()
-        text_font = pygame.font.SysFont("Corbel", 48)
-        text_content = "Paused"
-        text = text_font.render(text_content, True, white)
-
-        self.screen.blit(text, (200, 200))
-
-        text_font = pygame.font.SysFont(None, 36)
-        text_content = "Press 'P' to continue"
-        text = text_font.render(text_content, True, red)
-
-        self.screen.blit(text, (260, 350))
         pygame.display.flip()

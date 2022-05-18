@@ -6,6 +6,8 @@ from ui.game_rules_view import GameRulesView
 from ui.new_score_view import NewScoreView
 from data import GameData
 from clock import Clock
+from repositories.score_repository import (
+    score_repository as default_score_repository)
 
 
 def main():
@@ -19,11 +21,12 @@ def main():
     pygame.display.set_caption("Connect Four")
 
     clock = Clock()
+    score_repository = default_score_repository
     game_view = GameView(display, game_data)
     start_view = StartView(display, display_width, display_height)
     game_rules_view = GameRulesView(display, display_width, display_height)
     new_score_view = NewScoreView(display, display_width, display_height, clock)
-    renderer = Renderer(start_view, game_view, game_rules_view, new_score_view, clock)
+    renderer = Renderer(start_view, game_view, game_rules_view, new_score_view, score_repository, clock)
 
     pygame.init()
     renderer.show_start_screen()

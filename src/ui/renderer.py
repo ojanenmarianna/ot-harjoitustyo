@@ -47,6 +47,7 @@ class Renderer:
             if self._handle_start_menu() is False:
                 break
             pygame.display.update()
+        self.show_start_screen()
 
     def show_top_ten(self):
         self._current_view = self.top_ten_view
@@ -55,11 +56,12 @@ class Renderer:
             if self._handle_start_menu() is False:
                 break
             pygame.display.update()
+        self.show_start_screen()
 
     def show_new_score_screen(self):
         name = self.new_score_view.render(self.winner, self.event_queue)
+        self.save_new_win(name)
         self.show_start_screen()
-        return name
 
     def start(self):
         """
@@ -76,8 +78,7 @@ class Renderer:
             pygame.display.flip()
             self._clock.tick(70)
             self.game.draw()
-        name = self.show_new_score_screen()
-        self.save_new_win(name)
+        self.show_new_score_screen()
 
     def save_new_win(self, name):
         self.score_repository.add_new_win(name)
@@ -99,12 +100,12 @@ class Renderer:
                 if event.key == pygame.K_1:
                     self.show_game_rules()
                     while True:
-                        for event in pygame.event.get():
-                            if event.type == pygame.KEYDOWN:
+                        event = self.event_queue.get()
+                        if event.type == pygame.KEYDOWN:
                                 if event.key == pygame.K_r:
-                                    return
-                            elif event.type == pygame.QUIT:
-                                sys.exit()
+                                    break
+                        elif event.type == pygame.QUIT:
+                            sys.exit()
 
                 if event.key == pygame.K_2:
                     self.show_top_ten()

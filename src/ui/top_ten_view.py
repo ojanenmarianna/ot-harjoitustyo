@@ -44,7 +44,7 @@ class TopTenView:
 
             x_axel += 50
         
-        text_content = "Press 'R' to return"
+        text_content = "Press 'X' to return"
         text = text_font.render(text_content, True, blue)
         self._screen.blit(text, (100, 600))
 

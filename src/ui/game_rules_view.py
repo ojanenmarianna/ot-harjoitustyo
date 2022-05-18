@@ -32,7 +32,7 @@ class GameRulesView:
         text = text_font.render(text_content, True, white)
         self._screen.blit(text, (50, 400))
 
-        text_content = "Press 'R' to return"
+        text_content = "Press 'X' to return"
         text = text_font.render(text_content, True, red)
         self._screen.blit(text, (10, 500))
 

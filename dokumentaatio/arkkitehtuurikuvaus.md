@@ -14,3 +14,9 @@ Käyttöliittymällä on 5 näkymää:
 * Top10-tuloslista
 * Pelinäyttö
 * Uuden tuloksen tallentaminen / pelin lopetusnäyttö
+
+## Ohjelman rakenteeseen jääneet heikkoudet
+
+### Käyttöliittymä
+
+Luokalla Renderer on aivan liikaa vastuualueita, se tulisi jakaa vähintään kahteen eri luokkaan, mielellään kolmeen (esim. EventHandler & Renderer).

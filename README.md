@@ -22,6 +22,11 @@ Sovelluksen toiminta on testattu käyttäen Pythonin versiota `3.8`. Vanhempien 
 ```bash
 poetry install
 ```
+2. Alusta tietokanta komennolla:
+
+```bash
+poetry run invoke build
+```
 
 ## Komentorivitoiminnot
 
@@ -35,8 +40,13 @@ poetry run invoke start
 ```bash
 poetry run invoke test
 ```
+3. Kattavuusraportin voi muodostaa komennolla
 
-3. Koodin laatutarkistuksen voi suorittaa komennolla
+```bash
+poetry run invoke report
+```
+
+5. Koodin laatutarkistuksen voi suorittaa komennolla
 
 ```bash
 poetry run invoke lint

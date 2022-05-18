@@ -28,7 +28,8 @@ def main():
     game_rules_view = GameRulesView(display, display_width, display_height)
     new_score_view = NewScoreView(display, display_width, display_height, clock)
     top_ten_view = TopTenView(display, display_width, display_height, default_score_repository)
-    renderer = Renderer(start_view, game_view, game_rules_view, new_score_view, top_ten_view, score_repository, clock)
+    renderer = Renderer(start_view, game_view, game_rules_view,
+                        new_score_view, top_ten_view, score_repository, clock)
 
     pygame.init()
     renderer.show_start_screen()

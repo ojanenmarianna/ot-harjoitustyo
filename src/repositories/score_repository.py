@@ -27,7 +27,7 @@ class ScoreRepository:
         score = cursor.execute('SELECT score FROM Scores WHERE name=?', [name]).fetchone()
         if score is None:
             cursor.execute(
-                    "INSERT INTO Scores (name, score) VALUES (?, ?)", 
+                    "INSERT INTO Scores (name, score) VALUES (?, ?)",
                     (name, 1)
         )
         else:

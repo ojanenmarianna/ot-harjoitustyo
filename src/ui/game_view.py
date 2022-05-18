@@ -131,11 +131,11 @@ class GameView:
         text_content = "Paused"
         text = text_font.render(text_content, True, white)
 
-        self.screen.blit(text, (300, 300))
+        self.screen.blit(text, (200, 200))
 
         text_font = pygame.font.SysFont(None, 36)
         text_content = "Press 'P' to continue"
         text = text_font.render(text_content, True, red)
 
-        self.screen.blit(text, (260, 450))
+        self.screen.blit(text, (260, 350))
         pygame.display.flip()

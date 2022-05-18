@@ -1,28 +1,28 @@
 import math
+import sys
 import pygame
 
 from data import GameData
-#from ui.game_view import GameView
-#from ui.start_view import StartView
-#from ui.game_rules_view import GameRulesView
 from ui.event_queue import EventQueue
 from services.connect_game import ConnectGame
 
 
 class Renderer:
     """
-    GameLoop luokka renderöi näkymät näytölle.
+    Renderer-luokka renderöi näkymät näytölle.
     """
-    def __init__(self, start_view, game_view, game_rules_view, clock):
+    def __init__(self, start_view, game_view, game_rules_view, new_score_view, clock):
         self.game_view = game_view
         self.start_view = start_view
         self.game_rules_view = game_rules_view
+        self.new_score_view = new_score_view
         self.data = GameData()
         self.event_queue = EventQueue()
         self.game = None
         self._clock = clock
         self.game_over = False
         self.turn = 0
+        self.winner = None
 
         self._current_view = None
 
@@ -32,39 +32,45 @@ class Renderer:
         """
         self._current_view = self.start_view
         self._current_view.render()
-        running = True
-        while running:
+
+        while True:
             if self._handle_start_menu() is False:
                 break
             pygame.display.update()
-            self._clock.tick(1)
 
     def show_game_rules(self):
         self._current_view = self.game_rules_view
         self._current_view.render()
+        while True:
+            if self._handle_start_menu() is False:
+                break
+            pygame.display.update()
+
+    def show_new_score_screen(self):
+        self.new_score_view.render(self.winner, self.event_queue)
+        self.show_start_screen()
 
     def start(self):
         """
         Renderöi pelinäkymän.
         """
-        #screen = pygame.display.set_mode(self.data.size)
-        #game_view = GameView(screen, self.data)
+        self.game_over = False
+        self.turn = 0
         self.game = ConnectGame(self.data, self.game_view)
         self.game.draw()
         self._current_view = self.game_view
-        while True:
+        while not self.game_over:
             if self._handle_events() is False:
                 break
             pygame.display.flip()
             self._clock.tick(70)
             self.game.draw()
-        self.show_start_screen()
+        self.show_new_score_screen()
 
     def show_pause(self):
         '''Näyttää pause-näytön
         '''
         self._current_view.pause()
-        self._clock.tick(1)
 
     # event handle tullaan eriyttämään omaksi luokakseen
     def _handle_start_menu(self):
@@ -83,12 +89,13 @@ class Renderer:
                 if event.key == pygame.K_1:
                     self.show_game_rules()
                     while True:
-                        event = self.event_queue.get()
-                        if event.type == pygame.KEYDOWN:
-                            if event.key == pygame.K_r:
-                                break
-                        elif event.type == pygame.QUIT:
-                            self.game.quit()
+                        for event in pygame.event.get():
+                            if event.type == pygame.KEYDOWN:
+                                print("jotain")
+                                if event.key == pygame.K_r:
+                                    return
+                            elif event.type == pygame.QUIT:
+                                sys.exit()
 
                 if event.key == pygame.K_2:
                     #self.show_high_scores()
@@ -100,7 +107,7 @@ class Renderer:
                             if event.key == pygame.K_d:
                                 return "DELETE"
                         elif event.type == pygame.QUIT:
-                            self.game.quit()
+                            sys.exit()
 
     def _handle_events(self):
         """
@@ -118,11 +125,14 @@ class Renderer:
 
                     if self.game.tie_move():
                         print("It's a tie!")
+                        self.winner = 0
                         self.game_over = True
 
                     if self.game.winning_move(1):
                         print("Player 1 wins!")
+                        self.winner = 1
                         self.game_over = True
+
 
                     self.turn += 1
                     break
@@ -137,11 +147,14 @@ class Renderer:
 
                     if self.game.tie_move():
                         print("It's a tie!")
+                        self.winner = 0
                         self.game_over = True
 
                     if self.game.winning_move(2):
                         print("Player 2 wins!")
+                        self.winner = 2
                         self.game_over = True
+
 
                     self.turn -=1
                     break

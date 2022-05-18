@@ -2,19 +2,21 @@ import math
 import pygame
 
 from data import GameData
-from ui.game_view import GameView
-from ui.start_view import StartView
+#from ui.game_view import GameView
+#from ui.start_view import StartView
+#from ui.game_rules_view import GameRulesView
 from ui.event_queue import EventQueue
 from services.connect_game import ConnectGame
 
 
-class GameLoop:
+class Renderer:
     """
     GameLoop luokka renderöi näkymät näytölle.
     """
-    def __init__(self, start_view: StartView, game_view: GameView, clock):
+    def __init__(self, start_view, game_view, game_rules_view, clock):
         self.game_view = game_view
         self.start_view = start_view
+        self.game_rules_view = game_rules_view
         self.data = GameData()
         self.event_queue = EventQueue()
         self.game = None
@@ -37,18 +39,20 @@ class GameLoop:
             pygame.display.update()
             self._clock.tick(1)
 
-
+    def show_game_rules(self):
+        self._current_view = self.game_rules_view
+        self._current_view.render()
 
     def start(self):
         """
         Renderöi pelinäkymän.
         """
-        screen = pygame.display.set_mode(self.data.size)
-        game_view = GameView(screen, self.data)
-        self.game = ConnectGame(self.data, game_view)
+        #screen = pygame.display.set_mode(self.data.size)
+        #game_view = GameView(screen, self.data)
+        self.game = ConnectGame(self.data, self.game_view)
         self.game.draw()
-        self._current_view = game_view
-        while not self.game_over:
+        self._current_view = self.game_view
+        while True:
             if self._handle_events() is False:
                 break
             pygame.display.flip()
@@ -69,32 +73,25 @@ class GameLoop:
         """
         while True:
             event = self.event_queue.get()
+            if event.type == pygame.QUIT:
+                return False
+
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     self.start()
 
                 if event.key == pygame.K_1:
-                    #renderer.show_game_rules()
+                    self.show_game_rules()
                     while True:
                         event = self.event_queue.get()
                         if event.type == pygame.KEYDOWN:
                             if event.key == pygame.K_r:
-                                return
+                                break
                         elif event.type == pygame.QUIT:
                             self.game.quit()
 
                 if event.key == pygame.K_2:
-                    #renderer.show_control_options()
-                    while True:
-                        event = self.event_queue.get()
-                        if event.type == pygame.KEYDOWN:
-                            if event.key == pygame.K_r:
-                                return
-                        elif event.type == pygame.QUIT:
-                            self.game.quit()
-
-                if event.key == pygame.K_3:
-                    #renderer.show_high_scores()
+                    #self.show_high_scores()
                     while True:
                         event = self.event_queue.get()
                         if event.type == pygame.KEYDOWN:
@@ -104,12 +101,6 @@ class GameLoop:
                                 return "DELETE"
                         elif event.type == pygame.QUIT:
                             self.game.quit()
-
-            if event.type == pygame.KEYDOWN:
-                self.start()
-
-            if event.type == pygame.QUIT:
-                return False
 
     def _handle_events(self):
         """

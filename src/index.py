@@ -1,29 +1,30 @@
 import pygame
-from services.game_loop import GameLoop
+from ui.renderer import Renderer
 from ui.game_view import GameView
 from ui.start_view import StartView
+from ui.game_rules_view import GameRulesView
 from data import GameData
 from clock import Clock
 
-CELL_SIZE = 100
 
 def main():
+    game_data = GameData()
     width = 7
     height = 6
-    display_height = height * CELL_SIZE
-    display_width = width * CELL_SIZE
-    display = pygame.display.set_mode((display_width, display_height))
+    display_height = height * game_data.sq_size
+    display_width = width * game_data.sq_size
+    display = pygame.display.set_mode((game_data.width, game_data.height))
 
     pygame.display.set_caption("Connect Four")
 
     clock = Clock()
-    game_view = GameView(display, GameData)
+    game_view = GameView(display, game_data)
     start_view = StartView(display, display_width, display_height)
-
-    game_loop = GameLoop(start_view, game_view, clock)
+    game_rules_view = GameRulesView(display, width, height)
+    renderer = Renderer(start_view, game_view, game_rules_view, clock)
 
     pygame.init()
-    game_loop.show_start_screen()
+    renderer.show_start_screen()
 
 if __name__ == '__main__':
     main()

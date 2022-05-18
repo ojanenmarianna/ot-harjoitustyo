@@ -43,14 +43,7 @@ class StartView:
         pygame.draw.line(
             self._screen, white, ((self._width - rect[2])//2, 400 + rect[3]), ((self._width + rect[2])//2, 400 + rect[3]))
 
-        text_content = "Press '2' to see control options"
-        text = text_font.render(text_content, True, red)
-        rect = text.get_rect()
-        self._screen.blit(text, ((self._width - rect[2])//2, 450))
-        pygame.draw.line(
-            self._screen, white, ((self._width - rect[2])//2, 450 + rect[3]), ((self._width + rect[2])//2, 450 + rect[3]))
-
-        text_content = "Press '3' to see high scores"
+        text_content = "Press '2' to see high scores"
         text = text_font.render(text_content, True, red)
         rect = text.get_rect()
         self._screen.blit(text, ((self._width - rect[2])//2, 500))

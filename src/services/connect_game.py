@@ -1,5 +1,4 @@
 import sys
-import numpy as np
 
 from data import GameData
 from ui.game_view import GameView
@@ -28,7 +27,7 @@ class ConnectGame:
         sys.exit()
 
     def draw(self):
-        self.game_view.draw(self.board)
+        self.game_view.draw_board(self.board)
 
     def is_valid_location(self, col):
         """

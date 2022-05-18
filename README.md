@@ -11,6 +11,12 @@ Sovelluksen toiminta on testattu käyttäen Pythonin versiota `3.8`. Vanhempien 
 
 [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 
+[Käyttöohje](./dokumentaatio/kayttoohje.md)
+
+[Testausdokumentti](./dokumentaatio/tstausdokumentti.md)
+
+[Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuurikuvaus.md)
+
 [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 
 [Changelog](./dokumentaatio/changelog.md)

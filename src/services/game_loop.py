@@ -6,7 +6,6 @@ from ui.game_view import GameView
 from ui.start_view import StartView
 from ui.event_queue import EventQueue
 from services.connect_game import ConnectGame
-from services.board import GameBoard
 
 
 class GameLoop:
@@ -55,6 +54,7 @@ class GameLoop:
             pygame.display.flip()
             self._clock.tick(70)
             self.game.draw()
+        self.show_start_screen()
 
     def show_pause(self):
         '''Näyttää pause-näytön

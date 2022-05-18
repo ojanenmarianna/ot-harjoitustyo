@@ -8,27 +8,18 @@ class GameBoard():
 
     def __init__(self):
         """
-        Initializes the game board
+        Alustaa pelilaudan.
         """
         self.rows = 6
         self.cols = 7
         self.board = np.zeros((self.rows, self.cols))
 
-        self.print_board()
-
-
-    def print_board(self):
-        """
-        Prints the state of the board to the console
-        """
-        print(np.flip(self.board, 0))
-        print("-----------------------")
-        print(" " + str([1, 2, 3, 4, 5, 6, 7]))
-
     def drop_piece(self, row, col, piece):
         self.board[row][col] = piece
 
     def is_valid_location(self, col):
+        if col >= self.cols or col < 0:
+            return False
         return self.board[self.rows-1][col] == 0
 
     def get_next_open_row(self, col):
@@ -36,18 +27,16 @@ class GameBoard():
             if self.board[row][col] == 0:
                 return row
 
-        return self.tie_move()
-
     def check_square(self, piece, row, col):
         """
-        Checks if a particular square is a certain color.  If
-        the space is off of the board it returns False.
+        Tarkistaa, onko tietty ruutu tietyn värinen. Jos tila
+        on laudan ulkopuolelta, palauttaa False.
 
-        :param piece: The piece color to look for.
-        :param row: The row to check.
-        :param col: The column to check.
+        :param piece: Väri, jota etsitään.
+        :param row: Rivi, joka tarkistetaan.
+        :param col: Kolumni, joka tarkistetaan.
 
-        :return: Whether the square is on the board and has the color/piece specified.
+        :return: Onko ruutu laudalla, onko ruutu sitä väriä, jota etsitään.
         """
         if row < 0 or row >= self.rows:
             return False
@@ -59,13 +48,13 @@ class GameBoard():
 
     def horizontal_win(self, piece, row, col):
         """
-        Checks if there is a horizontal win at the position (row, col).
+        Tarkistaa horisontaalisen voiton.
 
-        :param piece: The color of the chip to check for.
-        :param row: The row.
-        :param col: The column.
+        :param piece: Merkin väri, jota tarkistetaan.
+        :param row: Rivi, josta tarkistetaan.
+        :param col: Kolumni, josta atarkistetaan
 
-        :return: Whether there is a horizontal win at the position (row, col).
+        :return: Onko laudalla horisontaalinen voitto.
         """
         return (
             self.check_square(piece, row, col)
@@ -76,13 +65,13 @@ class GameBoard():
 
     def vertical_win(self, piece, row, col):
         """
-        Checks if there is vertical win at the position (row, col)
-        :param piece: The color of the chip to check for.
+        CTarkistaa, onko laudalla vertikaalinen voitto.
+        :param piece: Merkin väri, jota tarkistetaan.
 
-        :param row: The row
-        :param col: The column
+        :param row: Rivi, jota tarkistetaan.
+        :param col: Kolumni,jota tarkistetaan.
 
-        :return: Whether there is a vertical win at the position (row, col)
+        :return: Onko laudalla vertikaalinen voitto.
         """
         return (
             self.check_square(piece, row, col)
@@ -93,13 +82,13 @@ class GameBoard():
 
     def diagonal_win(self, piece, row, col):
         """
-        Checks if there is a diagonal_win at the position (row, col)
-        :param piece: The color of the chip to check for.
+        Tarkistaa, onko laudala diagonaalinen voitto.
+        :param piece: Merkin väri, jota tarkistetaan.
 
-        :param row: The row
-        :param col: The column
+        :param row: Rivi, jota tarkitetaan
+        :param col: Kolumni, jota tarkistetaan.
 
-        :return: Whether there is a diagonal win at the position (row, col)
+        :return: Onko laudalla diagonaalinn voitto.
         """
         return (
             self.check_square(piece, row, col)
@@ -115,10 +104,10 @@ class GameBoard():
 
     def winning_move(self, piece):
         """
-        Checks if the current piece has won the game.
+        Tarkistaa, voittaako nykyisellä merkillä pelin.
 
-        :param piece: The color of the chip to check for.
-        :return: Whether the current piece has won the game.
+        :param piece: Väri (pelaaja), jonka voitto tarkistetaan.
+        :return: Voittaako nykyinen merkki pelin.
         """
         for col in range(self.cols):
             for row in range(self.rows):
@@ -132,9 +121,9 @@ class GameBoard():
 
     def tie_move(self):
         """
-        Checks for a tie game.
+        Tarkastaa, päättyykö peli tasan.
 
-        :return:  Whether a tie has occurred.
+        :return:  Onko peli päättynyt tasan.
         """
         slots_filled: int = 0
 
@@ -143,4 +132,4 @@ class GameBoard():
                 if self.board[row][col] != 0:
                     slots_filled += 1
 
-        return slots_filled == 35
+        return slots_filled >= 35

@@ -26,12 +26,6 @@ class ConnectGame:
     def draw(self):
         self.game_view.draw(self.game_data)
 
-    def print_board(self):
-        """
-        Printtaa laudan tilanteen konsoliin.
-        """
-        self.game_data.game_board.print_board()
-
     def is_valid_location(self, col):
         """
         Tarkistaa, onko hiiri laudan sisällä.

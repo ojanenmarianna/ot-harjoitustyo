@@ -11,11 +11,12 @@ class Renderer:
     """
     Renderer-luokka renderöi näkymät näytölle.
     """
-    def __init__(self, start_view, game_view, game_rules_view, new_score_view, score_repository, clock):
+    def __init__(self, start_view, game_view, game_rules_view, new_score_view, top_ten_view, score_repository, clock):
         self.game_view = game_view
         self.start_view = start_view
         self.game_rules_view = game_rules_view
         self.new_score_view = new_score_view
+        self.top_ten_view = top_ten_view
         self.score_repository = score_repository
         self.data = GameData()
         self.event_queue = EventQueue()
@@ -41,6 +42,14 @@ class Renderer:
 
     def show_game_rules(self):
         self._current_view = self.game_rules_view
+        self._current_view.render()
+        while True:
+            if self._handle_start_menu() is False:
+                break
+            pygame.display.update()
+
+    def show_top_ten(self):
+        self._current_view = self.top_ten_view
         self._current_view.render()
         while True:
             if self._handle_start_menu() is False:
@@ -98,7 +107,7 @@ class Renderer:
                                 sys.exit()
 
                 if event.key == pygame.K_2:
-                    #self.show_high_scores()
+                    self.show_top_ten()
                     while True:
                         event = self.event_queue.get()
                         if event.type == pygame.KEYDOWN:

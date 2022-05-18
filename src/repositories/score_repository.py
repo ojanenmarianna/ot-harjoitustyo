@@ -16,7 +16,7 @@ class ScoreRepository:
     def find_top_ten(self):
         cursor = self._connection.cursor()
 
-        cursor.execute('SELECT * FROM Scores ORDER BY score DESC LIMIT 10')
+        cursor.execute("SELECT * FROM Scores ORDER BY score DESC LIMIT 10")
 
         high_scores = cursor.fetchall()
 

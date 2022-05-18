@@ -24,14 +24,14 @@ poetry run invoke start
 
 Käynnistyksen jälkeen pelin voi alottaa painamalla enteriä. Aloitusnäkymästä voi myös siirtyä lukemaan pelin säännöt painamalla näppäintä 1 tai katsomaan TOP10-listaa näppäimellä 2. Näistä pääsee takaisin painamalla yläkulmassa olevaa rastia.
 
-![](.dokumentaatio/connect_four_start.jpg)
+![plot](.dokumentaatio/connect_four_start.jpg)
 
 Pelaaja 1 käyttää punaisia pelimerkkejä ja pelaaja 2 keltaisia. 
 
-![](.dokumentaatio/connect_four.jpg)
+![plot](.dokumentaatio/connect_four.jpg)
 
 Pelin päättyessä jomman kumman pelaajan voittoon, pelaaja voi tallentaa voittonsa syöttämällä nimimerkin näppäimistön kautta. Eteenpäin pääsee painamalla enteriä.
 
-![](.dokumentaatio/connect_four_win.jpg)
+![plot](.dokumentaatio/connect_four_win.jpg)
 
 Jos peli päättyy tasapeliin, siitä tulee näkyviin ilmoitus, josta pääsee eteenpäin painamalla enteriä.

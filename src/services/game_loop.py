@@ -17,7 +17,6 @@ class GameLoop:
         self.game_view = game_view
         self.start_view = start_view
         self.data = GameData()
-        #self.board = GameBoard()
         self.event_queue = EventQueue()
         self.game = None
         self._clock = clock

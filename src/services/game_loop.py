@@ -17,7 +17,7 @@ class GameLoop:
         self.game_view = game_view
         self.start_view = start_view
         self.data = GameData()
-        self.board = GameBoard()
+        #self.board = GameBoard()
         self.event_queue = EventQueue()
         self.game = None
         self._clock = clock
@@ -47,7 +47,7 @@ class GameLoop:
         """
         screen = pygame.display.set_mode(self.data.size)
         game_view = GameView(screen, self.data)
-        self.game = ConnectGame(self.data, game_view, GameBoard)
+        self.game = ConnectGame(self.data, game_view)
         self.game.draw()
         self._current_view = game_view
         while not self.game_over:

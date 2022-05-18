@@ -43,41 +43,40 @@ class GameView:
             self.screen.blit(self.yellow_chip, (x, y))
 
 
-    def draw(self, game_data: GameData):
+    def draw(self, game_board):
         """
         Piirtää pelin tilan, mukaan lukien laudan ja merkit.
         """
-        if game_data.action == "undo":
+        if self.game_data.action == "undo":
             filled_circle(
                 self.screen,
-                game_data.last_move_row,
-                game_data.last_move_col,
+                self.game_data.last_move_row,
+                self.game_data.last_move_col,
                 self.game_data.radius,
                 black,
             )
 
             aacircle(
                 self.screen,
-                game_data.last_move_row,
-                game_data.last_move_col,
+                self.game_data.last_move_row,
+                self.game_data.last_move_col,
                 self.game_data.radius,
                 black,
             )
 
             self.draw_black_chip(
-                game_data.last_move_col * self.game_data.sq_size + 5,
+                self.game_data.last_move_col * self.game_data.sq_size + 5,
                 self.game_data.height
                 - (
-                    game_data.last_move_row * self.game_data.sq_size
+                    self.game_data.last_move_row * self.game_data.sq_size
                     + self.game_data.sq_size
                     - 5
                 ),
             )
 
-            game_data.game_board.print_board()
-            game_data.action = None
+            self.game_data.action = None
 
-        self.draw_board(game_data.game_board)
+        self.draw_board(game_board)
 
     def draw_board(self, board):
         """

@@ -13,7 +13,7 @@ Sovelluksen toiminta on testattu käyttäen Pythonin versiota `3.8`. Vanhempien 
 
 [Käyttöohje](./dokumentaatio/kayttoohje.md)
 
-[Testausdokumentti](./dokumentaatio/tstausdokumentti.md)
+[Testausdokumentti](./dokumentaatio/testausdokumentti.md)
 
 [Arkkitehtuurikuvaus](./dokumentaatio/arkkitehtuurikuvaus.md)
 
